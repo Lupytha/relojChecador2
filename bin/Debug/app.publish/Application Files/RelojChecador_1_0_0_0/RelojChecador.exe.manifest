@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="RelojChecador.exe" version="1.0.0.0" publicKeyToken="71b966023e83a9bc" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="RelojChecador" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="RelojChecador.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de Control de cuentas de usuario
+          Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
+          nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar la virtualización de archivos y del Registro para la 
+         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RelojChecador.exe" size="133120">
+      <assemblyIdentity name="RelojChecador" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>K878qN+x4yM7GISAawNYQZNRCYJDEhW+cR+BeWSqSTc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="RelojChecador.exe.config" size="607">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qzla05I81KwJeAX1JqfYYBBuwhIrQhj+sgo/6u18QII=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=FCF23LUPYTHA\pc" issuerKeyHash="57363238072985792f9ef564150f5a1035c51c91" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>dnEg/+b65oviecoxPYCRoC1YJaoUaFQdX5UWFK80FXI=</DigestValue></Reference></SignedInfo><SignatureValue>sD4RgGoPGsbljqdnQukM6U1Qx4M6/0dwThIUqMoyBRMk40S08t7B0+t4qdwxsJyqEL0c0ev+i1dxCJ4QG8tvJoNNM1iDA69QxhTKLKLxnZH4/KPEH1KICD33PK4wdqc0PjcOMDLLqmrYMZQ1LMh3J6UfZFs6DVTWtYfQZ0yISa8=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>uBriBOzNyU2etMMcY/SmcPKQw1jJ0levzptaa2PneiQIpGdFojHher8ugpr19ofx367PlG4e9zbHIpKXizrgOihnAXK/Vy0IMW/H6KnxShXiXYgFk8tiWm/NnXFH0FdH8R0QLqmMiTOBaUEHutkzuZTLKv/OiMBVN1JD/W1dMtE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="721534af1416955f1d546814aa25582da091803d31ca79e28be6fae6ff207176" Description="" Url=""><as:assemblyIdentity name="RelojChecador.exe" version="1.0.0.0" publicKeyToken="71b966023e83a9bc" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=FCF23LUPYTHA\pc</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>oxPi1pKOamQtetq5w0fjvfmbA+3v+iu81DfEWFG6lEU=</DigestValue></Reference></SignedInfo><SignatureValue>PUeDCLoe8WzDzjigsdAe95fz0a/VK139Mofet1GqMw87uzTb+ql+DLLTW8IyDJHrpljZ1iaNdZo9Qzu+X03y0U9cqL3lqkDNJxkJfg1TVRnYxvMROrF76cwUCEUYBFCQQk/r1qF2+l3ShECvyqYv9vXBDsi12l6jE+ICGv8CUNM=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>uBriBOzNyU2etMMcY/SmcPKQw1jJ0levzptaa2PneiQIpGdFojHher8ugpr19ofx367PlG4e9zbHIpKXizrgOihnAXK/Vy0IMW/H6KnxShXiXYgFk8tiWm/NnXFH0FdH8R0QLqmMiTOBaUEHutkzuZTLKv/OiMBVN1JD/W1dMtE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQRiueH4XWQLpLF1qa/c3tezANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4ARgBDAEYAMgAzAEwAVQBQAFkAVABIAEEAXABwAGMwHhcNMTQxMTA0MTgwOTA5WhcNMTUxMTA1MDAwOTA5WjApMScwJQYDVQQDHh4ARgBDAEYAMgAzAEwAVQBQAFkAVABIAEEAXABwAGMwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALga4gTszclNnrTDHGP0pnDykMNYydJXr86bWmtj53okCKRnRaIx4Xq/LoKa9faH8d+uz5RuHvc2xyKSl4s64DooZwFyv1ctCDFvx+ip8UoV4l2IBZPLYlpvzZ1xR9BXR/EdEC6pjIkzgWlBB7rZM7mUyyr/zojAVTdSQ/1tXTLRAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAZvrTTGUAKAc/5hfA1bedvncj1WKPxnDMisxEnq0lzZ06wlvQmSNNRetTlH0iH6f4qvQqzwCFMF82GfiXaIl7kJbS800bk9DBGFvLUGnayifoz2larTGxyoOceWXTTcwjmJCvvQ4iR77SGu8G9LKYt3d2wqvTg2Yi4FZbOgtUBnM=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
