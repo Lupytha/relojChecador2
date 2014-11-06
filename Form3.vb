@@ -456,6 +456,7 @@ Public Class Form3
         '    consulta = "insert into empleado (id,numero,nombre) values (1,2322,adrian)"
 
         'DataEnvironment1.rsCommand1.AddNew()
+        ''este comentario es una prueba
 
     End Sub
 

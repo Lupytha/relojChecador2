@@ -19,3 +19,7 @@ C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.exe.config
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.exe
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.xml
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.pdb
+C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\bin\Debug\RelojChecador.exe.config
+C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.exe
+C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.xml
+C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.pdb
