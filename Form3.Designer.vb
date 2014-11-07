@@ -93,7 +93,7 @@ Partial Class Form3
         'Lun
         '
         Me.Lun.Enabled = False
-        Me.Lun.Location = New System.Drawing.Point(58, 120)
+        Me.Lun.Location = New System.Drawing.Point(53, 108)
         Me.Lun.Name = "Lun"
         Me.Lun.Size = New System.Drawing.Size(99, 20)
         Me.Lun.TabIndex = 0
@@ -102,7 +102,7 @@ Partial Class Form3
         'Mar
         '
         Me.Mar.Enabled = False
-        Me.Mar.Location = New System.Drawing.Point(58, 146)
+        Me.Mar.Location = New System.Drawing.Point(53, 134)
         Me.Mar.Name = "Mar"
         Me.Mar.Size = New System.Drawing.Size(99, 20)
         Me.Mar.TabIndex = 1
@@ -111,7 +111,7 @@ Partial Class Form3
         'Mier
         '
         Me.Mier.Enabled = False
-        Me.Mier.Location = New System.Drawing.Point(58, 172)
+        Me.Mier.Location = New System.Drawing.Point(53, 160)
         Me.Mier.Name = "Mier"
         Me.Mier.Size = New System.Drawing.Size(99, 20)
         Me.Mier.TabIndex = 2
@@ -120,7 +120,7 @@ Partial Class Form3
         'Jue
         '
         Me.Jue.Enabled = False
-        Me.Jue.Location = New System.Drawing.Point(58, 198)
+        Me.Jue.Location = New System.Drawing.Point(53, 186)
         Me.Jue.Name = "Jue"
         Me.Jue.Size = New System.Drawing.Size(99, 20)
         Me.Jue.TabIndex = 3
@@ -129,7 +129,7 @@ Partial Class Form3
         'Vie
         '
         Me.Vie.Enabled = False
-        Me.Vie.Location = New System.Drawing.Point(58, 224)
+        Me.Vie.Location = New System.Drawing.Point(53, 212)
         Me.Vie.Name = "Vie"
         Me.Vie.Size = New System.Drawing.Size(99, 20)
         Me.Vie.TabIndex = 4
@@ -138,7 +138,7 @@ Partial Class Form3
         'Sab
         '
         Me.Sab.Enabled = False
-        Me.Sab.Location = New System.Drawing.Point(58, 250)
+        Me.Sab.Location = New System.Drawing.Point(53, 238)
         Me.Sab.Name = "Sab"
         Me.Sab.Size = New System.Drawing.Size(99, 20)
         Me.Sab.TabIndex = 5
@@ -147,7 +147,7 @@ Partial Class Form3
         'Dom
         '
         Me.Dom.Enabled = False
-        Me.Dom.Location = New System.Drawing.Point(58, 276)
+        Me.Dom.Location = New System.Drawing.Point(53, 264)
         Me.Dom.Name = "Dom"
         Me.Dom.Size = New System.Drawing.Size(99, 20)
         Me.Dom.TabIndex = 6
@@ -158,7 +158,7 @@ Partial Class Form3
         Me.ent1.CustomFormat = "hh:mm:ss tt"
         Me.ent1.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.ent1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.ent1.Location = New System.Drawing.Point(183, 120)
+        Me.ent1.Location = New System.Drawing.Point(178, 108)
         Me.ent1.Name = "ent1"
         Me.ent1.ShowUpDown = True
         Me.ent1.Size = New System.Drawing.Size(99, 20)
@@ -168,7 +168,7 @@ Partial Class Form3
         'ent3
         '
         Me.ent3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent3.Location = New System.Drawing.Point(183, 172)
+        Me.ent3.Location = New System.Drawing.Point(178, 160)
         Me.ent3.Name = "ent3"
         Me.ent3.ShowUpDown = True
         Me.ent3.Size = New System.Drawing.Size(99, 20)
@@ -178,7 +178,7 @@ Partial Class Form3
         'sal3
         '
         Me.sal3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal3.Location = New System.Drawing.Point(299, 172)
+        Me.sal3.Location = New System.Drawing.Point(294, 160)
         Me.sal3.Name = "sal3"
         Me.sal3.ShowUpDown = True
         Me.sal3.Size = New System.Drawing.Size(99, 20)
@@ -188,7 +188,7 @@ Partial Class Form3
         'ent4
         '
         Me.ent4.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent4.Location = New System.Drawing.Point(183, 198)
+        Me.ent4.Location = New System.Drawing.Point(178, 186)
         Me.ent4.Name = "ent4"
         Me.ent4.ShowUpDown = True
         Me.ent4.Size = New System.Drawing.Size(99, 20)
@@ -198,7 +198,7 @@ Partial Class Form3
         'sal2
         '
         Me.sal2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal2.Location = New System.Drawing.Point(299, 146)
+        Me.sal2.Location = New System.Drawing.Point(294, 134)
         Me.sal2.Name = "sal2"
         Me.sal2.ShowUpDown = True
         Me.sal2.Size = New System.Drawing.Size(99, 20)
@@ -209,7 +209,7 @@ Partial Class Form3
         '
         Me.sal1.CustomFormat = "hh:mm:ss tt"
         Me.sal1.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal1.Location = New System.Drawing.Point(299, 120)
+        Me.sal1.Location = New System.Drawing.Point(294, 108)
         Me.sal1.Name = "sal1"
         Me.sal1.ShowUpDown = True
         Me.sal1.Size = New System.Drawing.Size(99, 20)
@@ -219,7 +219,7 @@ Partial Class Form3
         'ent2
         '
         Me.ent2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent2.Location = New System.Drawing.Point(183, 146)
+        Me.ent2.Location = New System.Drawing.Point(178, 134)
         Me.ent2.Name = "ent2"
         Me.ent2.ShowUpDown = True
         Me.ent2.Size = New System.Drawing.Size(99, 20)
@@ -229,7 +229,7 @@ Partial Class Form3
         'sal4
         '
         Me.sal4.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal4.Location = New System.Drawing.Point(299, 198)
+        Me.sal4.Location = New System.Drawing.Point(294, 186)
         Me.sal4.Name = "sal4"
         Me.sal4.ShowUpDown = True
         Me.sal4.Size = New System.Drawing.Size(99, 20)
@@ -239,7 +239,7 @@ Partial Class Form3
         'ent5
         '
         Me.ent5.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent5.Location = New System.Drawing.Point(183, 224)
+        Me.ent5.Location = New System.Drawing.Point(178, 212)
         Me.ent5.Name = "ent5"
         Me.ent5.ShowUpDown = True
         Me.ent5.Size = New System.Drawing.Size(99, 20)
@@ -249,7 +249,7 @@ Partial Class Form3
         'sal5
         '
         Me.sal5.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal5.Location = New System.Drawing.Point(299, 224)
+        Me.sal5.Location = New System.Drawing.Point(294, 212)
         Me.sal5.Name = "sal5"
         Me.sal5.ShowUpDown = True
         Me.sal5.Size = New System.Drawing.Size(99, 20)
@@ -259,7 +259,7 @@ Partial Class Form3
         'sal6
         '
         Me.sal6.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal6.Location = New System.Drawing.Point(299, 250)
+        Me.sal6.Location = New System.Drawing.Point(294, 238)
         Me.sal6.Name = "sal6"
         Me.sal6.ShowUpDown = True
         Me.sal6.Size = New System.Drawing.Size(99, 20)
@@ -269,7 +269,7 @@ Partial Class Form3
         'sal7
         '
         Me.sal7.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.sal7.Location = New System.Drawing.Point(299, 276)
+        Me.sal7.Location = New System.Drawing.Point(294, 264)
         Me.sal7.Name = "sal7"
         Me.sal7.ShowUpDown = True
         Me.sal7.Size = New System.Drawing.Size(99, 20)
@@ -279,7 +279,7 @@ Partial Class Form3
         'ent7
         '
         Me.ent7.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent7.Location = New System.Drawing.Point(183, 276)
+        Me.ent7.Location = New System.Drawing.Point(178, 264)
         Me.ent7.Name = "ent7"
         Me.ent7.ShowUpDown = True
         Me.ent7.Size = New System.Drawing.Size(99, 20)
@@ -289,7 +289,7 @@ Partial Class Form3
         'ent6
         '
         Me.ent6.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.ent6.Location = New System.Drawing.Point(183, 250)
+        Me.ent6.Location = New System.Drawing.Point(178, 238)
         Me.ent6.Name = "ent6"
         Me.ent6.ShowUpDown = True
         Me.ent6.Size = New System.Drawing.Size(99, 20)
@@ -299,7 +299,7 @@ Partial Class Form3
         'entb6
         '
         Me.entb6.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb6.Location = New System.Drawing.Point(449, 250)
+        Me.entb6.Location = New System.Drawing.Point(444, 238)
         Me.entb6.Name = "entb6"
         Me.entb6.ShowUpDown = True
         Me.entb6.Size = New System.Drawing.Size(99, 20)
@@ -309,7 +309,7 @@ Partial Class Form3
         'entb7
         '
         Me.entb7.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb7.Location = New System.Drawing.Point(449, 276)
+        Me.entb7.Location = New System.Drawing.Point(444, 264)
         Me.entb7.Name = "entb7"
         Me.entb7.ShowUpDown = True
         Me.entb7.Size = New System.Drawing.Size(99, 20)
@@ -319,7 +319,7 @@ Partial Class Form3
         'salb7
         '
         Me.salb7.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb7.Location = New System.Drawing.Point(565, 276)
+        Me.salb7.Location = New System.Drawing.Point(560, 264)
         Me.salb7.Name = "salb7"
         Me.salb7.ShowUpDown = True
         Me.salb7.Size = New System.Drawing.Size(99, 20)
@@ -329,7 +329,7 @@ Partial Class Form3
         'salb6
         '
         Me.salb6.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb6.Location = New System.Drawing.Point(565, 250)
+        Me.salb6.Location = New System.Drawing.Point(560, 238)
         Me.salb6.Name = "salb6"
         Me.salb6.ShowUpDown = True
         Me.salb6.Size = New System.Drawing.Size(99, 20)
@@ -339,7 +339,7 @@ Partial Class Form3
         'salb5
         '
         Me.salb5.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb5.Location = New System.Drawing.Point(565, 224)
+        Me.salb5.Location = New System.Drawing.Point(560, 212)
         Me.salb5.Name = "salb5"
         Me.salb5.ShowUpDown = True
         Me.salb5.Size = New System.Drawing.Size(99, 20)
@@ -349,7 +349,7 @@ Partial Class Form3
         'entb5
         '
         Me.entb5.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb5.Location = New System.Drawing.Point(449, 224)
+        Me.entb5.Location = New System.Drawing.Point(444, 212)
         Me.entb5.Name = "entb5"
         Me.entb5.ShowUpDown = True
         Me.entb5.Size = New System.Drawing.Size(99, 20)
@@ -359,7 +359,7 @@ Partial Class Form3
         'salb4
         '
         Me.salb4.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb4.Location = New System.Drawing.Point(565, 198)
+        Me.salb4.Location = New System.Drawing.Point(560, 186)
         Me.salb4.Name = "salb4"
         Me.salb4.ShowUpDown = True
         Me.salb4.Size = New System.Drawing.Size(99, 20)
@@ -369,7 +369,7 @@ Partial Class Form3
         'entb2
         '
         Me.entb2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb2.Location = New System.Drawing.Point(449, 146)
+        Me.entb2.Location = New System.Drawing.Point(444, 134)
         Me.entb2.Name = "entb2"
         Me.entb2.ShowUpDown = True
         Me.entb2.Size = New System.Drawing.Size(99, 20)
@@ -379,7 +379,7 @@ Partial Class Form3
         'salb1
         '
         Me.salb1.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb1.Location = New System.Drawing.Point(565, 120)
+        Me.salb1.Location = New System.Drawing.Point(560, 108)
         Me.salb1.Name = "salb1"
         Me.salb1.ShowUpDown = True
         Me.salb1.Size = New System.Drawing.Size(99, 20)
@@ -389,7 +389,7 @@ Partial Class Form3
         'salb2
         '
         Me.salb2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb2.Location = New System.Drawing.Point(565, 146)
+        Me.salb2.Location = New System.Drawing.Point(560, 134)
         Me.salb2.Name = "salb2"
         Me.salb2.ShowUpDown = True
         Me.salb2.Size = New System.Drawing.Size(99, 20)
@@ -399,7 +399,7 @@ Partial Class Form3
         'entb4
         '
         Me.entb4.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb4.Location = New System.Drawing.Point(449, 198)
+        Me.entb4.Location = New System.Drawing.Point(444, 186)
         Me.entb4.Name = "entb4"
         Me.entb4.ShowUpDown = True
         Me.entb4.Size = New System.Drawing.Size(99, 20)
@@ -409,7 +409,7 @@ Partial Class Form3
         'salb3
         '
         Me.salb3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.salb3.Location = New System.Drawing.Point(565, 172)
+        Me.salb3.Location = New System.Drawing.Point(560, 160)
         Me.salb3.Name = "salb3"
         Me.salb3.ShowUpDown = True
         Me.salb3.Size = New System.Drawing.Size(99, 20)
@@ -419,7 +419,7 @@ Partial Class Form3
         'entb3
         '
         Me.entb3.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb3.Location = New System.Drawing.Point(449, 172)
+        Me.entb3.Location = New System.Drawing.Point(444, 160)
         Me.entb3.Name = "entb3"
         Me.entb3.ShowUpDown = True
         Me.entb3.Size = New System.Drawing.Size(99, 20)
@@ -429,7 +429,7 @@ Partial Class Form3
         'entb1
         '
         Me.entb1.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.entb1.Location = New System.Drawing.Point(449, 120)
+        Me.entb1.Location = New System.Drawing.Point(444, 108)
         Me.entb1.Name = "entb1"
         Me.entb1.ShowUpDown = True
         Me.entb1.Size = New System.Drawing.Size(99, 20)
@@ -439,7 +439,7 @@ Partial Class Form3
         'cb1
         '
         Me.cb1.AutoSize = True
-        Me.cb1.Location = New System.Drawing.Point(27, 123)
+        Me.cb1.Location = New System.Drawing.Point(22, 111)
         Me.cb1.Name = "cb1"
         Me.cb1.Size = New System.Drawing.Size(15, 14)
         Me.cb1.TabIndex = 35
@@ -448,7 +448,7 @@ Partial Class Form3
         'cb6
         '
         Me.cb6.AutoSize = True
-        Me.cb6.Location = New System.Drawing.Point(27, 253)
+        Me.cb6.Location = New System.Drawing.Point(22, 241)
         Me.cb6.Name = "cb6"
         Me.cb6.Size = New System.Drawing.Size(15, 14)
         Me.cb6.TabIndex = 36
@@ -457,7 +457,7 @@ Partial Class Form3
         'cb5
         '
         Me.cb5.AutoSize = True
-        Me.cb5.Location = New System.Drawing.Point(27, 227)
+        Me.cb5.Location = New System.Drawing.Point(22, 215)
         Me.cb5.Name = "cb5"
         Me.cb5.Size = New System.Drawing.Size(15, 14)
         Me.cb5.TabIndex = 37
@@ -466,7 +466,7 @@ Partial Class Form3
         'cb4
         '
         Me.cb4.AutoSize = True
-        Me.cb4.Location = New System.Drawing.Point(27, 201)
+        Me.cb4.Location = New System.Drawing.Point(22, 189)
         Me.cb4.Name = "cb4"
         Me.cb4.Size = New System.Drawing.Size(15, 14)
         Me.cb4.TabIndex = 38
@@ -475,7 +475,7 @@ Partial Class Form3
         'cb3
         '
         Me.cb3.AutoSize = True
-        Me.cb3.Location = New System.Drawing.Point(27, 175)
+        Me.cb3.Location = New System.Drawing.Point(22, 163)
         Me.cb3.Name = "cb3"
         Me.cb3.Size = New System.Drawing.Size(15, 14)
         Me.cb3.TabIndex = 39
@@ -484,7 +484,7 @@ Partial Class Form3
         'cb2
         '
         Me.cb2.AutoSize = True
-        Me.cb2.Location = New System.Drawing.Point(27, 149)
+        Me.cb2.Location = New System.Drawing.Point(22, 137)
         Me.cb2.Name = "cb2"
         Me.cb2.Size = New System.Drawing.Size(15, 14)
         Me.cb2.TabIndex = 40
@@ -493,7 +493,7 @@ Partial Class Form3
         'cb7
         '
         Me.cb7.AutoSize = True
-        Me.cb7.Location = New System.Drawing.Point(27, 279)
+        Me.cb7.Location = New System.Drawing.Point(22, 267)
         Me.cb7.Name = "cb7"
         Me.cb7.Size = New System.Drawing.Size(15, 14)
         Me.cb7.TabIndex = 41
@@ -502,7 +502,7 @@ Partial Class Form3
         'cbb7
         '
         Me.cbb7.AutoSize = True
-        Me.cbb7.Location = New System.Drawing.Point(416, 279)
+        Me.cbb7.Location = New System.Drawing.Point(411, 267)
         Me.cbb7.Name = "cbb7"
         Me.cbb7.Size = New System.Drawing.Size(15, 14)
         Me.cbb7.TabIndex = 48
@@ -511,7 +511,7 @@ Partial Class Form3
         'cbb2
         '
         Me.cbb2.AutoSize = True
-        Me.cbb2.Location = New System.Drawing.Point(416, 149)
+        Me.cbb2.Location = New System.Drawing.Point(411, 137)
         Me.cbb2.Name = "cbb2"
         Me.cbb2.Size = New System.Drawing.Size(15, 14)
         Me.cbb2.TabIndex = 47
@@ -520,7 +520,7 @@ Partial Class Form3
         'cbb3
         '
         Me.cbb3.AutoSize = True
-        Me.cbb3.Location = New System.Drawing.Point(416, 175)
+        Me.cbb3.Location = New System.Drawing.Point(411, 163)
         Me.cbb3.Name = "cbb3"
         Me.cbb3.Size = New System.Drawing.Size(15, 14)
         Me.cbb3.TabIndex = 46
@@ -529,7 +529,7 @@ Partial Class Form3
         'cbb4
         '
         Me.cbb4.AutoSize = True
-        Me.cbb4.Location = New System.Drawing.Point(416, 201)
+        Me.cbb4.Location = New System.Drawing.Point(411, 189)
         Me.cbb4.Name = "cbb4"
         Me.cbb4.Size = New System.Drawing.Size(15, 14)
         Me.cbb4.TabIndex = 45
@@ -538,7 +538,7 @@ Partial Class Form3
         'cbb5
         '
         Me.cbb5.AutoSize = True
-        Me.cbb5.Location = New System.Drawing.Point(416, 227)
+        Me.cbb5.Location = New System.Drawing.Point(411, 215)
         Me.cbb5.Name = "cbb5"
         Me.cbb5.Size = New System.Drawing.Size(15, 14)
         Me.cbb5.TabIndex = 44
@@ -547,7 +547,7 @@ Partial Class Form3
         'cbb6
         '
         Me.cbb6.AutoSize = True
-        Me.cbb6.Location = New System.Drawing.Point(416, 253)
+        Me.cbb6.Location = New System.Drawing.Point(411, 241)
         Me.cbb6.Name = "cbb6"
         Me.cbb6.Size = New System.Drawing.Size(15, 14)
         Me.cbb6.TabIndex = 43
@@ -556,7 +556,7 @@ Partial Class Form3
         'cbb1
         '
         Me.cbb1.AutoSize = True
-        Me.cbb1.Location = New System.Drawing.Point(416, 123)
+        Me.cbb1.Location = New System.Drawing.Point(411, 111)
         Me.cbb1.Name = "cbb1"
         Me.cbb1.Size = New System.Drawing.Size(15, 14)
         Me.cbb1.TabIndex = 42
@@ -564,7 +564,7 @@ Partial Class Form3
         '
         'Guardar
         '
-        Me.Guardar.Location = New System.Drawing.Point(449, 331)
+        Me.Guardar.Location = New System.Drawing.Point(444, 319)
         Me.Guardar.Name = "Guardar"
         Me.Guardar.Size = New System.Drawing.Size(99, 30)
         Me.Guardar.TabIndex = 49
@@ -573,7 +573,7 @@ Partial Class Form3
         '
         'Rellenar
         '
-        Me.Rellenar.Location = New System.Drawing.Point(690, 120)
+        Me.Rellenar.Location = New System.Drawing.Point(685, 108)
         Me.Rellenar.Name = "Rellenar"
         Me.Rellenar.Size = New System.Drawing.Size(89, 20)
         Me.Rellenar.TabIndex = 50
@@ -582,7 +582,7 @@ Partial Class Form3
         '
         'Salir
         '
-        Me.Salir.Location = New System.Drawing.Point(565, 331)
+        Me.Salir.Location = New System.Drawing.Point(560, 319)
         Me.Salir.Name = "Salir"
         Me.Salir.Size = New System.Drawing.Size(99, 30)
         Me.Salir.TabIndex = 51
@@ -604,7 +604,7 @@ Partial Class Form3
         '
         Me.ComboBox1.DisplayMember = "numsemana"
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(124, 75)
+        Me.ComboBox1.Location = New System.Drawing.Point(119, 63)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(54, 21)
         Me.ComboBox1.TabIndex = 53
@@ -613,7 +613,7 @@ Partial Class Form3
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(69, 78)
+        Me.Label1.Location = New System.Drawing.Point(64, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(49, 13)
         Me.Label1.TabIndex = 54
@@ -622,7 +622,7 @@ Partial Class Form3
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(204, 77)
+        Me.Label2.Location = New System.Drawing.Point(199, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 55
@@ -631,7 +631,7 @@ Partial Class Form3
         'fechaini
         '
         Me.fechaini.Enabled = False
-        Me.fechaini.Location = New System.Drawing.Point(239, 75)
+        Me.fechaini.Location = New System.Drawing.Point(234, 63)
         Me.fechaini.Name = "fechaini"
         Me.fechaini.Size = New System.Drawing.Size(100, 20)
         Me.fechaini.TabIndex = 56
@@ -639,7 +639,7 @@ Partial Class Form3
         'fechafin
         '
         Me.fechafin.Enabled = False
-        Me.fechafin.Location = New System.Drawing.Point(373, 75)
+        Me.fechafin.Location = New System.Drawing.Point(368, 63)
         Me.fechafin.Name = "fechafin"
         Me.fechafin.Size = New System.Drawing.Size(100, 20)
         Me.fechafin.TabIndex = 57
@@ -647,7 +647,7 @@ Partial Class Form3
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(345, 78)
+        Me.Label3.Location = New System.Drawing.Point(340, 66)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(22, 13)
         Me.Label3.TabIndex = 58
@@ -656,7 +656,7 @@ Partial Class Form3
         'txtnombre
         '
         Me.txtnombre.Enabled = False
-        Me.txtnombre.Location = New System.Drawing.Point(207, 40)
+        Me.txtnombre.Location = New System.Drawing.Point(202, 28)
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.Size = New System.Drawing.Size(224, 20)
         Me.txtnombre.TabIndex = 61
@@ -664,7 +664,7 @@ Partial Class Form3
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(69, 43)
+        Me.Label4.Location = New System.Drawing.Point(64, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(54, 13)
         Me.Label4.TabIndex = 60
@@ -674,7 +674,7 @@ Partial Class Form3
         '
         Me.ComboBox2.DisplayMember = "numero"
         Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(124, 40)
+        Me.ComboBox2.Location = New System.Drawing.Point(119, 28)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(54, 21)
         Me.ComboBox2.TabIndex = 59
@@ -695,7 +695,7 @@ Partial Class Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(811, 562)
+        Me.ClientSize = New System.Drawing.Size(787, 378)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.txtnombre)
         Me.Controls.Add(Me.Label4)

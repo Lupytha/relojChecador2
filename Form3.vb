@@ -423,8 +423,10 @@ Public Class Form3
 
         'ttotal = (tlunes + tmartes + tmiercoles + tjueves + tviernes + tsabado + tdomingo) / 60
         ttotals = ttotal & ":00"
-
+        nomhorario = ComboBox2.Text & " " & fechaini.Text
+        'Convert.ToString(DataGridView2.CurrentRow.Cells(2).Value) & " " & Convert.ToString(DataGridView2.CurrentRow.Cells(3).Value)
         MsgBox(" TTOTALS: " & ttotals)
+
 
         consulta = "insert into horario (nombre,tipo,[entrada(0)],[salida(0)],[salidabreak(0)],[regresobreak(0)],[tiempo(0)],[comienza(0)], " & _
               "[entrada(1)],[salida(1)],[salidabreak(1)],[regresobreak(1)],[tiempo(1)],[comienza(1)]," & _
@@ -433,7 +435,7 @@ Public Class Form3
               "[entrada(4)],[salida(4)],[salidabreak(4)],[regresobreak(4)],[tiempo(4)],[comienza(4)]," & _
               "[entrada(5)],[salida(5)],[salidabreak(5)],[regresobreak(5)],[tiempo(5)],[comienza(5)]," & _
               "[entrada(6)],[salida(6)],[salidabreak(6)],[regresobreak(6)],[tiempo(6)],[comienza(6)])" & _
-              "values ('prueba22','Fijo' " & "," & lunes & "," & martes & "," & miercoles & "," & jueves & _
+              "values ('" & nomhorario & "','Fijo' " & "," & lunes & "," & martes & "," & miercoles & "," & jueves & _
               "," & viernes & "," & sabado & "," & domingo & ")"
 
         basedatos = New OleDbDataAdapter(consulta, Conexion)

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RelojChecador.exe" size="135168">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RelojChecador.exe" size="135680">
       <assemblyIdentity name="RelojChecador" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+GUCjSd3S9j8Ezlawu0xeyvDDojtujoZwKpu58ZUss4=</dsig:DigestValue>
+        <dsig:DigestValue>AM6mP4l7fi/1rpAf5UfmdIYXHLfasubbWgoU6WOfzZM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
