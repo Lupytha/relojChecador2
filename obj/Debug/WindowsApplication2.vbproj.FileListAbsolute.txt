@@ -23,3 +23,16 @@ C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\bin\Debug\Re
 C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.exe
 C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.xml
 C:\Users\FCF46\Documents\Visual Studio 2013\Projects\relojChecador2\obj\Debug\RelojChecador.pdb
+C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.exe.manifest
+C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.application
+C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.exe
+C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.pdb
+C:\Users\pc\Documents\GitHub\relojChecador2\bin\Debug\RelojChecador.xml
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\WindowsApplication2.vbprojResolveAssemblyReference.cache
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Form1.resources
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Form2.resources
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Form3.resources
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Resources.resources
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.exe.manifest
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.application

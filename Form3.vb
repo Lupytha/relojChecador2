@@ -2,24 +2,26 @@
 
 Public Class Form3
     Dim basedatos As OleDbDataAdapter
-    Dim Conexion, selectsemanas As String
+    Dim Conexion, selectsemanas, selectempleados As String
     Dim cadenaconexion As OleDbConnection
     Dim horarios As DataTable
-    Dim semanas As DataTable
+    Dim semanas, empleados As DataTable
     Dim comando As OleDbCommand
-    Dim consulta As String
+    Dim consulta, nomhorario As String
     Dim lunes, martes, miercoles, jueves, viernes, sabado, domingo As String
     Dim tlunes, tmartes, tmiercoles, tjueves, tviernes, tsabado, tdomingo, ttotals As String
     Dim tlunesb, tmartesb, tmiercolesb, tjuevesb, tviernesb, tsabadob, tdomingob As String
     Dim lunest, martest, miercolest, juevest, viernest, sabadot, domingot As Integer
     Dim ttotal As Integer
+    ' Dim rowsem As DataRow
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Conexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='C:\Program Files (x86)\TimeWork Reloj Checador\fcf.mdb';" & _
                   "Persist Security Info=True;Jet OLEDB:Database Password=YaDRMlMPtdwYEAdtDNtL"
 
-        selectsemanas = "SELECT * FROM semanas WHERE YEAR(fechaini)=YEAR(Date())"
+        selectsemanas = "SELECT * FROM semanas WHERE YEAR(fechaini) = YEAR(Date())"
+        selectempleados = "SELECT id, numero, nombre, apellidos FROM  empleado where activo=true"
 
         basedatos = New OleDbDataAdapter(selectsemanas, Conexion)
         cadenaconexion = New OleDbConnection(Conexion)
@@ -30,14 +32,30 @@ Public Class Form3
             comando.ExecuteNonQuery()
             semanas = New DataTable
             basedatos.Fill(semanas)
-
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
         cadenaconexion.Close()
         ComboBox1.DataSource = semanas
-        fechaini.Text = semanas.Columns(1).ToString
-        fechafin.Text = semanas.Columns(2).ToString
+        DataGridView1.DataSource = semanas
+
+        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value()).Date
+        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value()).Date
+
+
+        basedatos = New OleDbDataAdapter(selectempleados, Conexion)
+        cadenaconexion = New OleDbConnection(Conexion)
+
+        Try
+            cadenaconexion.Open()
+            empleados = New DataTable
+            basedatos.Fill(empleados)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cadenaconexion.Close()
+        ComboBox2.DataSource = empleados
+        DataGridView2.DataSource = empleados
 
         ent1.Enabled = False
         ent2.Enabled = False
@@ -407,7 +425,7 @@ Public Class Form3
         ttotals = ttotal & ":00"
 
         MsgBox(" TTOTALS: " & ttotals)
-       
+
         consulta = "insert into horario (nombre,tipo,[entrada(0)],[salida(0)],[salidabreak(0)],[regresobreak(0)],[tiempo(0)],[comienza(0)], " & _
               "[entrada(1)],[salida(1)],[salidabreak(1)],[regresobreak(1)],[tiempo(1)],[comienza(1)]," & _
               "[entrada(2)],[salida(2)],[salidabreak(2)],[regresobreak(2)],[tiempo(2)],[comienza(2)]," & _
@@ -460,11 +478,14 @@ Public Class Form3
 
     End Sub
 
-    Private Sub ent1_ValueChanged(sender As Object, e As EventArgs) Handles ent1.ValueChanged
-
+    Private Sub DataGridView1_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEnter
+        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value()).Date
+        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value()).Date
     End Sub
 
-    Private Sub fechaini_TextChanged(sender As Object, e As EventArgs) Handles fechaini.TextChanged
-
+    
+   
+    Private Sub DataGridView2_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellEnter
+        txtnombre.Text = Convert.ToString(DataGridView2.CurrentRow.Cells(2).Value) & " " & Convert.ToString(DataGridView2.CurrentRow.Cells(3).Value)
     End Sub
 End Class
