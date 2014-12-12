@@ -11,7 +11,7 @@ Imports System.Data.DataRow
 Public Class Form2
     Public fechaini As DateTime
     Public fechafin As DateTime
-    Dim irrow As Integer
+    'Dim irrow As Integer
     Dim Excel As Object
     Dim libro As Object
     Dim hoja As Object
@@ -22,7 +22,6 @@ Public Class Form2
     Dim auxpos As Integer
     Dim posr As Integer
     Dim idempleado As String
-    Dim Cantidad As Integer
     Dim basedatos As OleDbDataAdapter
     Dim empleados As DataTable
     Dim selectEmpleados As String
@@ -30,7 +29,6 @@ Public Class Form2
     Dim n As Integer
     Dim selectEventos As String
     Dim eventos As DataTable
-    Dim ds As New DataSet
     Dim cadenaconexion As OleDbConnection
     Dim fechin As String
     Dim fechfi As String
@@ -38,8 +36,8 @@ Public Class Form2
     Dim selectHorario As String
     Dim horario As DataTable
     Dim faltas As Integer
+    Dim faltasretardo As Decimal
     Dim aux As Integer
-    Dim bandera As String
     Dim selectDia As String
     Dim FechaActual As DateTime
     Dim exd As Integer
@@ -49,18 +47,10 @@ Public Class Form2
     Dim auxsa As String
     Dim auxen As String
     Dim dia As Integer
-    Dim Cs As Integer
-    Dim Ce As Integer
-    Dim Ceb As Integer
-    Dim Csb As Integer
-    Dim hen As String
-    Dim hes As String
-    Dim hsab As String
-    Dim henb As String
-    Private _dateDiff As Integer
+    Dim Cs, Ce, Ceb, Csb As Integer
+    Dim hen, hes, hsab, henb As String
     Dim resta As String
     Dim Fila As Integer
-    Private _dateAdd As String
     Dim dias As Long
     Dim posf As Integer
     Dim auxcount As Integer
@@ -70,8 +60,10 @@ Public Class Form2
     Dim FechaActual2 As Date
     Dim entr2 As Date
     Dim rowev As DataRow
-
+   
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
+        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
         'TODO: esta línea de código carga datos en la tabla 'DataSet1.Empleados' Puede moverla o quitarla según sea necesario.
         ProgressBar1.Visible = False
         ProgressBar1.Minimum = 0
@@ -97,18 +89,16 @@ Public Class Form2
         End Try
         cadenaconexion.Close()
         DataGridView1.DataSource = empleados
-
     End Sub
 
     Private Sub BtnGenerar_Click(sender As Object, e As EventArgs) Handles BtnGenerar.Click
-
         Excel = CreateObject("Excel.Application")
         libro = Excel.workbooks.open("c:\reportefcf2.xls")
         Excel.visible = False
         hoja = Excel.activesheet
         ProgressBar1.Visible = True
 
-        irrow = 1
+        'irrow = 1
         contador = 0
         retardo = 0
         sretardo = ""
@@ -118,7 +108,6 @@ Public Class Form2
         dias = DateDiff(DateInterval.Day, fechaini, fechafin)
         posn = 11
         posr = 14
-        'contador = 0
         fechafin = fechafin.AddDays(1)
         FechaActual = Format(fechaini.Date, "dd/MM/yyyy")
 
@@ -133,9 +122,9 @@ Public Class Form2
                 End If
 
                 If DateDiff(DateInterval.Day, fechaini, fechafin) > 7 Then
-                    auxpos = 26
+                    auxpos = 39
                 Else
-                    auxpos = 20
+                    auxpos = 33
                 End If
 
                 hoja.cells(posn, 2) = "NOMBRE"
@@ -164,13 +153,10 @@ Public Class Form2
                     Console.WriteLine(ex.Message)
                 End Try
                 cadenaconexion.Close()
-
+                DataGridView2.DataSource = eventos
+                DataGridView2.Refresh()
                 If eventos.Rows.Count > 0 Then
-
-                    DataGridView2.DataSource = eventos
-                    DataGridView2.Refresh()
                     idhorario = CStr(rowev("Idhorario"))
-
                     selectHorario = "Select * from horario where id=" & idhorario
                     basedatos = New OleDbDataAdapter(selectHorario, Conexion)
 
@@ -183,7 +169,6 @@ Public Class Form2
                     End Try
                     cadenaconexion.Close()
                     DataGridView3.DataSource = horario
-                    DataGridView3.Refresh()
 
                     aux = 5
                     faltas = 0
@@ -200,7 +185,6 @@ Public Class Form2
                     Fila = posr
 
                     For Each rowhor As DataRow In horario.Rows
-
                         For n As Integer = 0 To dias '+ 2 ' - 1
                             FechaActual = fechaini.AddDays(n)
                             selectDia = "Select idempleado, idhorario, Entrada, " & _
@@ -250,6 +234,7 @@ Public Class Form2
                             End If
 
                             For Each rowdia As DataRow In tabladias.Rows
+                                idhorario = rowdia("idhorario")
                                 If exd > 0 Then
 
                                     entr = CStr(rowdia(2))
@@ -274,16 +259,26 @@ Public Class Form2
                                     End If
 
                                     If Convert.ToString(rowhor(Ceb)) = "" Then
-                                        hes = rowhor(Cs)
-                                        hes = hes.Substring(11, 13)
-                                        hen = rowhor(Ce)
-                                        hen = hen.Substring(11, 13)
+                                        hes = rowhor(Cs).ToString
+                                        hen = rowhor(Ce).ToString
+                                        If hes <> "" Then
+                                            hes = hes.Substring(11, 13)
+                                        End If
+                                        If hen <> "" Then
+                                            hen = hen.Substring(11, 13)
+                                        End If
+
                                         contador = 1
                                     Else
-                                        hes = rowhor(Ceb)
-                                        hes = hes.Substring(11, 13)
-                                        hen = rowhor(Ce)
-                                        hen = hen.Substring(11, 13)
+                                        hes = rowhor(Ceb).ToString
+                                        hen = rowhor(Ce).ToString
+
+                                        If hes <> "" Then
+                                            hes = hes.Substring(11, 13)
+                                        End If
+                                        If hen <> "" Then
+                                            hen = hen.Substring(11, 13)
+                                        End If
                                         contador = contador + 1
                                         henb = Convert.ToString(rowhor(Ceb))
                                         hsab = Convert.ToString(rowhor(Csb))
@@ -294,7 +289,6 @@ Public Class Form2
                                             hoja.cells(Fila + 1, 5) = "Sin Registro"
                                             hoja.cells(Fila + 1, 7) = "RETARDO (FALTA REGISTRO DE BREAK)"
                                         End If
-
                                     End If
 
                                     If entr = "" Then
@@ -327,12 +321,14 @@ Public Class Form2
                                                 retardo = retardo + 1
                                             End If
 
-                                            hoja.cells(Fila, 2) = entr.Substring(0, 10)
-                                            hoja.cells(Fila, 3) = entr.Substring(11, 13)
-                                            hoja.cells(Fila, 4) = Convert.ToString(rowhor(Ce)).Substring(11, 13)
-                                            hoja.cells(Fila, 5) = salida.Substring(11, 13)
-                                            hoja.cells(Fila, 6) = hes
-
+                                            If rowhor(Ce).ToString <> "" Then
+                                                hoja.cells(Fila, 2) = FechaActual.Date
+                                                hoja.cells(Fila, 3) = entr.Substring(11, 13)
+                                                hoja.cells(Fila, 4) = Convert.ToString(rowhor(Ce)).Substring(11, 13)
+                                                hoja.cells(Fila, 5) = salida.Substring(11, 13)
+                                                hoja.cells(Fila, 6) = hes
+                                                'hoja.cells(Fila, 8) = idhorario
+                                            End If
                                             posf = posr + dias + 1
                                             ' End If
                                         End If
@@ -344,7 +340,6 @@ Public Class Form2
                                                 Fila = Fila + 1
                                             End If
                                         End If
-
                                     End If
 
                                     If exd = 2 And contador = 2 Then
@@ -381,7 +376,7 @@ Public Class Form2
                                                     auxen = entr.Substring(11, 13)
                                                 End If
 
-                                                If henb <> "" Then
+                                                If henb <> "" And hsab <> "" Then
                                                     resta = DateDiff(DateInterval.Minute, TimeValue(hsab), TimeValue(auxen))
                                                     If auxen > hsab And resta > "00:05:00" Then
                                                         retardo = retardo + 1
@@ -395,14 +390,12 @@ Public Class Form2
                                                         hoja.cells(Fila, 7) = "RETARDO (FALTA REGISTRO DE SALIDA)"
                                                         retardo = retardo + 1
                                                     End If
-
-
-                                                    hoja.cells(Fila, 2) = entr.Substring(0, 10)
+                                                    hoja.cells(Fila, 2) = FechaActual.Date 'entr.Substring(0, 10)
                                                     hoja.cells(Fila, 3) = entr.Substring(11, 13)
-                                                    hoja.cells(Fila, 4) = hsab.Substring(11, 13) 'Convert.ToString(rowhor(Csb)).Substring(11, 13)
+                                                    hoja.cells(Fila, 4) = hsab.Substring(11, 13)
                                                     hoja.cells(Fila, 5) = salida.Substring(11, 13)
-                                                    hoja.cells(Fila, 6) = hes.Substring(11, 13) 'Convert.ToString(rowhor(Cs)).Substring(11, 13)
-
+                                                    hoja.cells(Fila, 6) = hes.Substring(11, 13)
+                                                    'hoja.cells(Fila, 8) = idhorario
                                                 End If
                                                 hoja.cells(Fila, 2).Interior.ColorIndex = 24
                                                 hoja.cells(Fila, 3).Interior.ColorIndex = 24
@@ -415,7 +408,6 @@ Public Class Form2
                                     End If
                                 End If
                                 ' Si no hay registros en el dia, hay que verificar si es dia de descanso o falta 
-                                '   entr = CStr(rowdia(2))
                                 If ProgressBar1.Value < ProgressBar1.Maximum Then
                                     ProgressBar1.Value += 1
                                     If ProgressBar1.Value = ProgressBar1.Maximum Then
@@ -426,17 +418,21 @@ Public Class Form2
                             Next
                             Fila = Fila + 1
                         Next
-
                     Next
                 End If
-
+                faltasretardo = retardo / 3
                 hoja.cells(1 + Fila, 2) = "Faltas"
-                hoja.cells(1 + Fila + 1, 2) = "Retardos"
                 hoja.cells(1 + Fila, 3) = faltas
+                hoja.cells(1 + Fila + 1, 2) = "Retardos"
                 hoja.cells(1 + Fila + 1, 3) = retardo
-                hoja.cells(1 + Fila + 1, 5) = "FIRMA"
-                hoja.cells(1 + Fila + 1, 5).Font.Bold = True
-
+                hoja.cells(1 + Fila + 2, 2) = "Faltas por retardos: "
+                hoja.cells(1 + Fila + 2, 3) = Decimal.Truncate(faltasretardo)
+                hoja.cells(1 + Fila + 3, 2) = "Faltas a descontar: "
+                hoja.cells(1 + Fila + 3, 3) = faltas + Decimal.Truncate(faltasretardo)
+                hoja.cells(1 + Fila + 3, 5) = "FIRMA"
+                hoja.cells(1 + Fila + 3, 5).Font.Bold = True
+                hoja.cells(1 + Fila + 3, 6) = "                                                      "
+                hoja.cells(1 + Fila + 3, 6).Font.Underline = True
             Next
         End If
         ProgressBar1.Value = 15
@@ -446,14 +442,13 @@ Public Class Form2
         'hoja.printout()
         auxcount = 0
         ' impresora = PrinterSettings.InstalledPrinters
-
+        Me.Close()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
     End Sub
 
-    
     Private Sub Fecha1_ValueChanged_1(sender As Object, e As EventArgs) Handles Fecha1.ValueChanged
         fechaini = Convert.ToDateTime(Fecha1.Value)
     End Sub
@@ -462,6 +457,4 @@ Public Class Form2
         fechafin = Convert.ToDateTime(Fecha2.Value)
     End Sub
 
-    Private Sub ProgressBar1_Click(sender As Object, e As EventArgs) Handles ProgressBar1.Click
-    End Sub
 End Class

@@ -2,47 +2,26 @@
 
 Public Class Form3
     Dim basedatos As OleDbDataAdapter
-    Dim Conexion, selectsemanas, selectempleados As String
+    Dim Conexion, selectsemanas, selectempleados, selecthorario, selecthorario2 As String
     Dim cadenaconexion As OleDbConnection
-    Dim horarios As DataTable
+    Dim horarios, horarios2, horarios3 As DataTable
     Dim semanas, empleados As DataTable
     Dim comando As OleDbCommand
-    Dim consulta, nomhorario As String
+    Dim consulta, nomhorario, borrahorario As String
     Dim lunes, martes, miercoles, jueves, viernes, sabado, domingo As String
     Dim tlunes, tmartes, tmiercoles, tjueves, tviernes, tsabado, tdomingo, ttotals As String
     Dim tlunesb, tmartesb, tmiercolesb, tjuevesb, tviernesb, tsabadob, tdomingob As String
     Dim lunest, martest, miercolest, juevest, viernest, sabadot, domingot As Integer
     Dim ttotal As Integer
-    ' Dim rowsem As DataRow
+    Dim result As DialogResult
 
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
+        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
         Conexion = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source='C:\Program Files (x86)\TimeWork Reloj Checador\fcf.mdb';" & _
                   "Persist Security Info=True;Jet OLEDB:Database Password=YaDRMlMPtdwYEAdtDNtL"
 
-        selectsemanas = "SELECT * FROM semanas WHERE YEAR(fechaini) = YEAR(Date())"
-        selectempleados = "SELECT id, numero, nombre, apellidos FROM  empleado where activo=true"
-
-        basedatos = New OleDbDataAdapter(selectsemanas, Conexion)
-        cadenaconexion = New OleDbConnection(Conexion)
-
-        Try
-            cadenaconexion.Open()
-            comando = New OleDbCommand(selectsemanas, cadenaconexion)
-            comando.ExecuteNonQuery()
-            semanas = New DataTable
-            basedatos.Fill(semanas)
-        Catch ex As Exception
-            Console.WriteLine(ex.Message)
-        End Try
-        cadenaconexion.Close()
-        ComboBox1.DataSource = semanas
-        DataGridView1.DataSource = semanas
-
-        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value()).Date
-        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value()).Date
-
-
+        selectempleados = "SELECT id, numero, nombre, apellidos FROM  empleado where activo=true order by numero"
         basedatos = New OleDbDataAdapter(selectempleados, Conexion)
         cadenaconexion = New OleDbConnection(Conexion)
 
@@ -56,6 +35,28 @@ Public Class Form3
         cadenaconexion.Close()
         ComboBox2.DataSource = empleados
         DataGridView2.DataSource = empleados
+
+
+
+        selectsemanas = "SELECT * FROM semanas WHERE YEAR(fechaini) = YEAR(Date())"
+        basedatos = New OleDbDataAdapter(selectsemanas, Conexion)
+        cadenaconexion = New OleDbConnection(Conexion)
+
+        Try
+            cadenaconexion.Open()
+            'comando = New OleDbCommand(selectsemanas, cadenaconexion)
+            'comando.ExecuteNonQuery()
+            semanas = New DataTable
+            basedatos.Fill(semanas)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+        End Try
+        cadenaconexion.Close()
+        ComboBox1.DataSource = semanas
+        DataGridView1.DataSource = semanas
+
+        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value()).Date
+        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value()).Date
 
         ent1.Enabled = False
         ent2.Enabled = False
@@ -311,178 +312,221 @@ Public Class Form3
     End Sub
 
     Private Sub Guardar_Click(sender As Object, e As EventArgs) Handles Guardar.Click
-      
-        If cb1.CheckState Then
-            If cbb1.CheckState Then
-                tlunes = DateDiff(DateInterval.Hour, ent1.Value, sal1.Value)
-                tlunesb = DateDiff(DateInterval.Hour, entb1.Value, salb1.Value)
-                lunest = tlunes - tlunesb
-                ttotal = ttotal + lunest
-                lunes = "'" & ent1.Value & "',' " & sal1.Value & "',' " & entb1.Value & "',' " & salb1.Value & "','" & tlunes & "','03/01/2000'"
-            Else
-                tlunes = DateDiff(DateInterval.Hour, ent1.Value, sal1.Value)
-                ttotal = ttotal + tlunes
-                lunes = "' " & ent1.Value & "',' " & sal1.Value & "',NULL,NULL,'" & tlunes & "','03/01/2000'"
-            End If
-        Else
-            lunes = "Null,Null,Null,Null,Null,Null"
-        End If
-
-        If cb2.CheckState Then
-            If cbb2.CheckState Then
-                tmartes = DateDiff(DateInterval.Hour, ent2.Value, sal2.Value)
-                tmartesb = DateDiff(DateInterval.Hour, entb2.Value, salb2.Value)
-                martest = tmartes - tmartesb
-                ttotal = ttotal + martest
-                martes = "'" & ent2.Value & "',' " & sal2.Value & "',' " & entb2.Value & "',' " & salb2.Value & "','" & tmartes & "','04/01/2000'"
-            Else
-                tmartes = DateDiff(DateInterval.Hour, ent2.Value, sal2.Value)
-                ttotal = ttotal + tmartes
-                martes = "'" & ent2.Value & "',' " & sal2.Value & "',NULL,NULL,'" & tmartes & "','04/01/2000'"
-
-            End If
-        Else
-            martes = "Null,Null,Null,Null,Null,Null"
-        End If
-        If cb3.CheckState Then
-            If cbb3.CheckState Then
-                tmiercoles = DateDiff(DateInterval.Hour, ent3.Value, sal3.Value)
-                tmiercolesb = DateDiff(DateInterval.Hour, entb3.Value, salb3.Value)
-                miercolest = tmiercoles - tmiercolesb
-                ttotal = ttotal + miercolest
-                miercoles = "' " & ent3.Value & "',' " & sal3.Value & "',' " & entb3.Value & "',' " & salb3.Value & "','" & tmiercoles & "','05/01/2000'"
-            Else
-                tmiercoles = DateDiff(DateInterval.Hour, ent3.Value, sal3.Value)
-                ttotal = ttotal + tmiercoles
-                miercoles = "' " & ent3.Value & "',' " & sal3.Value & "',NULL,NULL,'" & tmiercoles & "','05/01/2000'"
-            End If
-        Else
-            miercoles = "Null,Null,Null,Null,Null,Null"
-        End If
-        If cb4.CheckState Then
-            If cbb4.CheckState Then
-                tjueves = DateDiff(DateInterval.Hour, ent4.Value, sal4.Value)
-                tjuevesb = DateDiff(DateInterval.Hour, entb4.Value, salb4.Value)
-                juevest = tjueves - tjuevesb
-                ttotal = ttotal + juevest
-                jueves = "' " & ent4.Value & "',' " & sal4.Value & "',' " & entb4.Value & "',' " & salb4.Value & "','" & tjueves & "','06/01/2000'"
-            Else
-                tjueves = DateDiff(DateInterval.Hour, ent4.Value, sal4.Value)
-                ttotal = ttotal + tjueves
-                jueves = "' " & ent4.Value & "',' " & sal4.Value & "',NULL,NULL,'" & tjueves & "','06/01/2000'"
-            End If
-        Else
-            jueves = "Null,Null,Null,Null,Null,Null"
-        End If
-        If cb5.CheckState Then
-            If cbb5.CheckState Then
-                tviernes = DateDiff(DateInterval.Hour, ent5.Value, sal5.Value)
-                tviernesb = DateDiff(DateInterval.Hour, entb5.Value, salb5.Value)
-                viernest = tviernes - tviernesb
-                ttotal = ttotal + viernest
-                viernes = "' " & ent5.Value & "',' " & sal5.Value & "',' " & entb5.Value & "',' " & salb5.Value & "','" & tviernes & "','07/01/2000'"
-            Else
-                tviernes = DateDiff(DateInterval.Hour, ent5.Value, sal5.Value)
-                ttotal = ttotal + tviernes
-                viernes = "' " & ent5.Value & "',' " & sal5.Value & "',NULL,NULL,'" & tviernes & "','07/01/2000'"
-            End If
-        Else
-            viernes = "Null,Null,Null,Null,Null,Null"
-        End If
-
-        If cb6.CheckState Then
-            If cbb6.CheckState Then
-                tsabado = DateDiff(DateInterval.Hour, ent6.Value, sal6.Value)
-                tsabadob = DateDiff(DateInterval.Hour, entb6.Value, salb6.Value)
-                sabadot = tsabado - tsabadob
-                ttotal = ttotal + sabadot
-                sabado = "' " & ent6.Value & "',' " & sal6.Value & "',' " & entb6.Value & "',' " & salb6.Value & "','" & tsabado & "','08/01/2000'"
-            Else
-                tsabado = DateDiff(DateInterval.Hour, ent6.Value, sal6.Value)
-                ttotal = ttotal + tsabado
-                sabado = "' " & ent6.Value & "',' " & sal6.Value & "',NULL,NULL,'" & tsabado & "','08/01/2000'"
-            End If
-        Else
-            sabado = "Null,Null,Null,Null,Null,Null"
-        End If
-        If cb7.CheckState Then
-            If cbb7.CheckState Then
-                tdomingo = DateDiff(DateInterval.Hour, ent7.Value, sal7.Value)
-                tdomingob = DateDiff(DateInterval.Hour, entb7.Value, salb7.Value)
-                domingot = tdomingo - tdomingob
-                ttotal = ttotal + domingot
-                domingo = "' " & ent7.Value & "',' " & sal7.Value & "',' " & entb7.Value & "',' " & salb7.Value & "','" & tdomingo & "','09/01/2000'"
-            Else
-                tdomingo = DateDiff(DateInterval.Hour, ent7.Value, sal7.Value)
-                ttotal = ttotal + tdomingo
-                domingo = "' " & ent7.Value & "',' " & sal7.Value & "',NULL,NULL,'" & tdomingo & "','09/01/2000'"
-            End If
-        Else
-            domingo = "Null,Null,Null,Null,Null,Null"
-        End If
-
-        'ttotal = (tlunes + tmartes + tmiercoles + tjueves + tviernes + tsabado + tdomingo) / 60
-        ttotals = ttotal & ":00"
-        nomhorario = ComboBox2.Text & " " & fechaini.Text
-        'Convert.ToString(DataGridView2.CurrentRow.Cells(2).Value) & " " & Convert.ToString(DataGridView2.CurrentRow.Cells(3).Value)
-        MsgBox(" TTOTALS: " & ttotals)
-
-
-        consulta = "insert into horario (nombre,tipo,[entrada(0)],[salida(0)],[salidabreak(0)],[regresobreak(0)],[tiempo(0)],[comienza(0)], " & _
-              "[entrada(1)],[salida(1)],[salidabreak(1)],[regresobreak(1)],[tiempo(1)],[comienza(1)]," & _
-              "[entrada(2)],[salida(2)],[salidabreak(2)],[regresobreak(2)],[tiempo(2)],[comienza(2)]," & _
-              "[entrada(3)],[salida(3)],[salidabreak(3)],[regresobreak(3)],[tiempo(3)],[comienza(3)]," & _
-              "[entrada(4)],[salida(4)],[salidabreak(4)],[regresobreak(4)],[tiempo(4)],[comienza(4)]," & _
-              "[entrada(5)],[salida(5)],[salidabreak(5)],[regresobreak(5)],[tiempo(5)],[comienza(5)]," & _
-              "[entrada(6)],[salida(6)],[salidabreak(6)],[regresobreak(6)],[tiempo(6)],[comienza(6)])" & _
-              "values ('" & nomhorario & "','Fijo' " & "," & lunes & "," & martes & "," & miercoles & "," & jueves & _
-              "," & viernes & "," & sabado & "," & domingo & ")"
-
-        basedatos = New OleDbDataAdapter(consulta, Conexion)
+        nomhorario = ComboBox2.Text & " " & ComboBox1.Text
+        selecthorario = "SELECT * FROM horario WHERE nombre ='" & nomhorario & "'"
+        basedatos = New OleDbDataAdapter(selecthorario, Conexion)
         cadenaconexion = New OleDbConnection(Conexion)
 
         Try
             cadenaconexion.Open()
-            comando = New OleDbCommand(consulta, cadenaconexion)
-            MessageBox.Show(consulta)
+            comando = New OleDbCommand(selecthorario, cadenaconexion)
             comando.ExecuteNonQuery()
-            MessageBox.Show(consulta)
-            horarios = New DataTable
-            basedatos.Fill(horarios)
-
+            horarios2 = New DataTable
+            basedatos.Fill(horarios2)
         Catch ex As Exception
             Console.WriteLine(ex.Message)
         End Try
         cadenaconexion.Close()
-        DataGridView1.DataSource = horarios
+        DataGridView3.DataSource = horarios2
+
+        If horarios2.Rows.Count > 0 Then
+            result = MessageBox.Show("Ya existe un horario asignado para este empleado en esta semana, " & Chr(13) & _
+                                                         "¿Desea continuar?", "Important Query", MessageBoxButtons.OKCancel, _
+                                                          MessageBoxIcon.Warning)
+            If result = 1 Then
+                borrahorario = "DELETE FROM horario WHERE nombre ='" & nomhorario & "'"
+                basedatos = New OleDbDataAdapter(borrahorario, Conexion)
+                cadenaconexion = New OleDbConnection(Conexion)
+                Try
+                    cadenaconexion.Open()
+                    comando = New OleDbCommand(borrahorario, cadenaconexion)
+                    'MessageBox.Show(borrahorario)
+                    comando.ExecuteNonQuery()
+                    'MessageBox.Show(borrahorario)
+                    horarios3 = New DataTable
+                    basedatos.Fill(horarios3)
+                Catch ex As Exception
+                    Console.WriteLine(ex.Message)
+                End Try
+                cadenaconexion.Close()
+                DataGridView3.Refresh()
+            End If
+        Else
+            result = 1
+        End If
+
+        If result = 1 And horarios2.Rows.Count = 0 Then
+            If cb1.CheckState Then
+                If cbb1.CheckState Then
+                    tlunes = DateDiff(DateInterval.Hour, ent1.Value, sal1.Value)
+                    tlunesb = DateDiff(DateInterval.Hour, entb1.Value, salb1.Value)
+                    lunest = tlunes - tlunesb
+                    ttotal = ttotal + lunest
+                    lunes = "'" & ent1.Value & "',' " & sal1.Value & "',' " & entb1.Value & "',' " & salb1.Value & "','" & lunest * 60 & "','03/01/2000'"
+                Else
+                    tlunes = DateDiff(DateInterval.Hour, ent1.Value, sal1.Value)
+                    ttotal = ttotal + tlunes
+                    lunes = "' " & ent1.Value & "',' " & sal1.Value & "',NULL,NULL,'" & tlunes * 60 & "','03/01/2000'"
+                End If
+            Else
+                lunes = "Null,Null,Null,Null,Null,Null"
+            End If
+
+            If cb2.CheckState Then
+                If cbb2.CheckState Then
+                    tmartes = DateDiff(DateInterval.Hour, ent2.Value, sal2.Value)
+                    tmartesb = DateDiff(DateInterval.Hour, entb2.Value, salb2.Value)
+                    martest = tmartes - tmartesb
+                    ttotal = ttotal + martest
+                    martes = "'" & ent2.Value & "',' " & sal2.Value & "',' " & entb2.Value & "',' " & salb2.Value & "','" & martest * 60 & "','04/01/2000'"
+                Else
+                    tmartes = DateDiff(DateInterval.Hour, ent2.Value, sal2.Value)
+                    ttotal = ttotal + tmartes
+                    martes = "'" & ent2.Value & "',' " & sal2.Value & "',NULL,NULL,'" & tmartes * 60 & "','04/01/2000'"
+
+                End If
+            Else
+                martes = "Null,Null,Null,Null,Null,Null"
+            End If
+            If cb3.CheckState Then
+                If cbb3.CheckState Then
+                    tmiercoles = DateDiff(DateInterval.Hour, ent3.Value, sal3.Value)
+                    tmiercolesb = DateDiff(DateInterval.Hour, entb3.Value, salb3.Value)
+                    miercolest = tmiercoles - tmiercolesb
+                    ttotal = ttotal + miercolest
+                    miercoles = "' " & ent3.Value & "',' " & sal3.Value & "',' " & entb3.Value & "',' " & salb3.Value & "','" & miercolest * 60 & "','05/01/2000'"
+                Else
+                    tmiercoles = DateDiff(DateInterval.Hour, ent3.Value, sal3.Value)
+                    ttotal = ttotal + tmiercoles
+                    miercoles = "' " & ent3.Value & "',' " & sal3.Value & "',NULL,NULL,'" & tmiercoles * 60 & "','05/01/2000'"
+                End If
+            Else
+                miercoles = "Null,Null,Null,Null,Null,Null"
+            End If
+            If cb4.CheckState Then
+                If cbb4.CheckState Then
+                    tjueves = DateDiff(DateInterval.Hour, ent4.Value, sal4.Value)
+                    tjuevesb = DateDiff(DateInterval.Hour, entb4.Value, salb4.Value)
+                    juevest = tjueves - tjuevesb
+                    ttotal = ttotal + juevest
+                    jueves = "' " & ent4.Value & "',' " & sal4.Value & "',' " & entb4.Value & "',' " & salb4.Value & "','" & juevest * 60 & "','06/01/2000'"
+                Else
+                    tjueves = DateDiff(DateInterval.Hour, ent4.Value, sal4.Value)
+                    ttotal = ttotal + tjueves
+                    jueves = "' " & ent4.Value & "',' " & sal4.Value & "',NULL,NULL,'" & tjueves * 60 & "','06/01/2000'"
+                End If
+            Else
+                jueves = "Null,Null,Null,Null,Null,Null"
+            End If
+            If cb5.CheckState Then
+                If cbb5.CheckState Then
+                    tviernes = DateDiff(DateInterval.Hour, ent5.Value, sal5.Value)
+                    tviernesb = DateDiff(DateInterval.Hour, entb5.Value, salb5.Value)
+                    viernest = tviernes - tviernesb
+                    ttotal = ttotal + viernest
+                    viernes = "' " & ent5.Value & "',' " & sal5.Value & "',' " & entb5.Value & "',' " & salb5.Value & "','" & viernest * 60 & "','07/01/2000'"
+                Else
+                    tviernes = DateDiff(DateInterval.Hour, ent5.Value, sal5.Value)
+                    ttotal = ttotal + tviernes
+                    viernes = "' " & ent5.Value & "',' " & sal5.Value & "',NULL,NULL,'" & tviernes * 60 & "','07/01/2000'"
+                End If
+            Else
+                viernes = "Null,Null,Null,Null,Null,Null"
+            End If
+
+            If cb6.CheckState Then
+                If cbb6.CheckState Then
+                    tsabado = DateDiff(DateInterval.Hour, ent6.Value, sal6.Value)
+                    tsabadob = DateDiff(DateInterval.Hour, entb6.Value, salb6.Value)
+                    sabadot = tsabado - tsabadob
+                    ttotal = ttotal + sabadot
+                    sabado = "' " & ent6.Value & "',' " & sal6.Value & "',' " & entb6.Value & "',' " & salb6.Value & "','" & sabadot * 60 & "','08/01/2000'"
+                Else
+                    tsabado = DateDiff(DateInterval.Hour, ent6.Value, sal6.Value)
+                    ttotal = ttotal + tsabado
+                    sabado = "' " & ent6.Value & "',' " & sal6.Value & "',NULL,NULL,'" & tsabado * 60 & "','08/01/2000'"
+                End If
+            Else
+                sabado = "Null,Null,Null,Null,Null,Null"
+            End If
+            If cb7.CheckState Then
+                If cbb7.CheckState Then
+                    tdomingo = DateDiff(DateInterval.Hour, ent7.Value, sal7.Value)
+                    tdomingob = DateDiff(DateInterval.Hour, entb7.Value, salb7.Value)
+                    domingot = tdomingo - tdomingob
+                    ttotal = ttotal + domingot
+                    domingo = "' " & ent7.Value & "',' " & sal7.Value & "',' " & entb7.Value & "',' " & salb7.Value & "','" & domingot * 60 & "','09/01/2000'"
+                Else
+                    tdomingo = DateDiff(DateInterval.Hour, ent7.Value, sal7.Value)
+                    ttotal = ttotal + tdomingo
+                    domingo = "' " & ent7.Value & "',' " & sal7.Value & "',NULL,NULL,'" & tdomingo * 60 & "','09/01/2000'"
+                End If
+            Else
+                domingo = "Null,Null,Null,Null,Null,Null"
+            End If
+
+            'ttotal = (tlunes + tmartes + tmiercoles + tjueves + tviernes + tsabado + tdomingo) / 60
+            ttotals = ttotal & ":00"
+
+            'Convert.ToString(DataGridView2.CurrentRow.Cells(2).Value) & " " & Convert.ToString(DataGridView2.CurrentRow.Cells(3).Value)
+            'MsgBox(" TTOTALS: " & ttotals)
 
 
-        'Open "c:\consulta.txt" For Output As #1
+            consulta = "insert into horario (nombre,tipo,[entrada(0)],[salida(0)],[salidabreak(0)],[regresobreak(0)],[tiempo(0)],[comienza(0)], " & _
+                  "[entrada(1)],[salida(1)],[salidabreak(1)],[regresobreak(1)],[tiempo(1)],[comienza(1)]," & _
+                  "[entrada(2)],[salida(2)],[salidabreak(2)],[regresobreak(2)],[tiempo(2)],[comienza(2)]," & _
+                  "[entrada(3)],[salida(3)],[salidabreak(3)],[regresobreak(3)],[tiempo(3)],[comienza(3)]," & _
+                  "[entrada(4)],[salida(4)],[salidabreak(4)],[regresobreak(4)],[tiempo(4)],[comienza(4)]," & _
+                  "[entrada(5)],[salida(5)],[salidabreak(5)],[regresobreak(5)],[tiempo(5)],[comienza(5)]," & _
+                  "[entrada(6)],[salida(6)],[salidabreak(6)],[regresobreak(6)],[tiempo(6)],[comienza(6)], tiempototal)" & _
+                  "values ('" & nomhorario & "','Fijo' " & "," & lunes & "," & martes & "," & miercoles & "," & jueves & _
+                  "," & viernes & "," & sabado & "," & domingo & ",'" & ttotals & "')"
 
-        'Print #1, consulta
+            basedatos = New OleDbDataAdapter(consulta, Conexion)
+            cadenaconexion = New OleDbConnection(Conexion)
 
-        'Close #1
+            Try
+                cadenaconexion.Open()
+                comando = New OleDbCommand(consulta, cadenaconexion)
+                'MessageBox.Show(consulta)
+                comando.ExecuteNonQuery()
+                'MessageBox.Show(consulta)
+                horarios = New DataTable
+                basedatos.Fill(horarios)
+                MessageBox.Show("Horario guardado con exito")
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            cadenaconexion.Close()
+            DataGridView1.DataSource = horarios
 
 
-        '  MsgBox(consulta)
+            'Open "c:\consulta.txt" For Output As #1
 
-        'DataEnvironment1.Connection1.Execute(consulta)
+            'Print #1, consulta
 
-        'ent1.Value = Format(ent1.Value, "03/01/2000 HH:MM")
-        'DataEnvironment1.rscom.MoveLast()
+            'Close #1
 
-        '    DataEnvironment1.rscom.AddNew
-        '    Dim consulta As String
-        '    consulta = "insert into empleado (id,numero,nombre) values (1,2322,adrian)"
 
-        'DataEnvironment1.rsCommand1.AddNew()
-        ''este comentario es una prueba
+            '  MsgBox(consulta)
 
+            'DataEnvironment1.Connection1.Execute(consulta)
+
+            'ent1.Value = Format(ent1.Value, "03/01/2000 HH:MM")
+            'DataEnvironment1.rscom.MoveLast()
+
+            '    DataEnvironment1.rscom.AddNew
+            '    Dim consulta As String
+            '    consulta = "insert into empleado (id,numero,nombre) values (1,2322,adrian)"
+
+            'DataEnvironment1.rsCommand1.AddNew()
+            ''este comentario es una prueba
+        End If
     End Sub
 
     Private Sub DataGridView1_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellEnter
-        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value()).Date
-        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value()).Date
+        fechaini.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(1).Value())
+        fechafin.Text = Convert.ToDateTime(DataGridView1.CurrentRow.Cells(2).Value())
     End Sub
 
     
@@ -490,4 +534,7 @@ Public Class Form3
     Private Sub DataGridView2_CellEnter(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellEnter
         txtnombre.Text = Convert.ToString(DataGridView2.CurrentRow.Cells(2).Value) & " " & Convert.ToString(DataGridView2.CurrentRow.Cells(3).Value)
     End Sub
+
+   
+   
 End Class

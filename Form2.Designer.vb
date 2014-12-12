@@ -116,7 +116,7 @@ Partial Class Form2
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(100, 23)
         Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Salir "
+        Me.Button1.Text = "Cancelar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Fecha1
@@ -144,7 +144,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(532, 201)
+        Me.ClientSize = New System.Drawing.Size(511, 221)
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Fecha2)
         Me.Controls.Add(Me.Fecha1)

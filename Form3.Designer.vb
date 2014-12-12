@@ -86,8 +86,10 @@ Partial Class Form3
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Lun
@@ -691,11 +693,21 @@ Partial Class Form3
         Me.DataGridView2.Size = New System.Drawing.Size(268, 150)
         Me.DataGridView2.TabIndex = 62
         '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(593, 382)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(268, 150)
+        Me.DataGridView3.TabIndex = 63
+        '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(787, 378)
+        Me.ClientSize = New System.Drawing.Size(890, 363)
+        Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.txtnombre)
         Me.Controls.Add(Me.Label4)
@@ -764,6 +776,7 @@ Partial Class Form3
         Me.Text = "GENERADOR DE HORARIO"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -831,4 +844,5 @@ Partial Class Form3
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
 End Class

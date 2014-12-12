@@ -36,3 +36,5 @@ C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Resources.re
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\WindowsApplication2.vbproj.GenerateResource.Cache
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.exe.manifest
 C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.application
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.Form4.resources
+C:\Users\pc\Documents\GitHub\relojChecador2\obj\Debug\RelojChecador.LoginForm1.resources
